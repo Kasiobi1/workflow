@@ -4,7 +4,8 @@ const errName  =document.querySelector("#demo")
 const incorrectErr = document.querySelector("#incorrect")
 const errPass  =document.querySelector("#code")
 
- Submit.addEventListener("click", (e)=> {
+ Submit.addEventListener("click", async (e) => {
+  try{
   e.preventDefault()
   const confirms = document.getElementById("confirm").value
      const userName = document.getElementById("username").value
@@ -14,7 +15,7 @@ const errPass  =document.querySelector("#code")
     if(passWord.length > 5 && passWord.indexOf( " ") ===-1){
       if(confirms === passWord){
          alert("Valid credentials")
-        window.location.href = "banner.html";
+        window.location.href = "public/logs/banner.html";
 
       }
       else{
@@ -33,4 +34,23 @@ const errPass  =document.querySelector("#code")
    errName.textContent = "Username must end with @gmail.com or include gap"
    errName.classList.add("checker")
  }
+       const data = {userName, confirms}
+       const options = {
+         method: "POST",
+         headers: {"Content-Type": "application/json" },
+         body: JSON.stringify(data)
+       }
+
+       const response = await fetch("/api", options)
+       const getData = await response.json()
+       console.log(getData)
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    
+     
+    
+
+
  })
+

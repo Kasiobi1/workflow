@@ -1,0 +1,28 @@
+{
+  "name": "login",
+  "version": "1.0.0",
+  "description": "Verification app",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kasiobi1/workflow.git"
+  },
+  "keywords": [
+    "examples",
+    "data",
+    "credentials"
+  ],
+  "author": "Augustine Kasiobi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kasiobi1/workflow/issues"
+  },
+  "homepage": "https://github.com/Kasiobi1/workflow#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nedb": "^1.8.0"
+  }
+}
