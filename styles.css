@@ -6,6 +6,8 @@ body{
 
 }
 
+
+
 .div1{
     margin: auto;
     height: 800px;
@@ -64,13 +66,27 @@ form{
 
 }
 
+.confrim{
+    font-family: helvetica;
+    margin-bottom: 8px;
+
+}
+
 .pass{
  border: none;
      border-bottom: solid 1px purple; 
     background: transparent;
     width: 270px;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
+
+.con{
+    border: none;
+        border-bottom: solid 1px purple; 
+       background: transparent;
+       width: 270px;
+       margin-bottom: 10px;
+   }
 
 .button1{
     border: none;
