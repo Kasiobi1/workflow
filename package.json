@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Kasiobi1/workflow#readme",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.18.2",
     "nedb": "^1.8.0"
   }

@@ -28,14 +28,14 @@
 
                     <p id="incorrect"></p>
 
-                    <legend class="confirm">Confirm password</legend>
-                <i class="fa fa-lock" style="color: deepskyblue;">
-                    <input id="confirm" class="con" type="password" name="password" placeholder="Confirm password"></i>
+                    <legend class="password">confirm password</legend>
+                    <i class="fa fa-lock" style="color: deepskyblue;">
+                        <input id="confirms" class="pass" type="password" name="password" placeholder="confirm password"></i>
 
 
                 <button class="button1" type="menu">Forgotten password?</button>
 
-                    <input type="submit" value="Sign up" id="submit" class="submit">   
+                    <input type="submit" value="Login " id="submit" class="submit">   
 
                 <span class="span1">Or Sign Up Using</span>
                 
@@ -44,15 +44,68 @@
                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
                     <a href="#"><i class="fa-brands fa-google"></i></a>
                 </div>
-
-                <span class="span2">Or Sign Up Using</span>
-                <span class="span3">SIGN UP</span>
             </form>
         </div>
     </div>
 </section>
     <!-- <a href="banner.html">Other side</a> -->
 
-    <script src="app.js"></script>
+    <script>
+
+        //working with DOM
+        const errName  =document.querySelector("#demo")
+        const incorrectErr = document.querySelector("#incorrect")
+        const errPass  =document.querySelector("#code")
+        const push = document.getElementById("submit")
+
+        //listening to the event
+        push.addEventListener("click", async e => {
+            const confirms = document.getElementById("confirms").value;
+            const user = document.getElementById("username").value;
+            const pass = document.getElementById("password").value;
+            e.preventDefault();
+
+            //assining logic verification to the password an username
+            if(user.includes("@gmail.com") && user.indexOf(" ") === -1){
+                if(pass.length > 5 && pass.indexOf( " ") ===-1){
+                  if(confirms === pass){
+                     alert("Valid credentials");
+                    window.location.href = "/logs/banner.html";
+                  }
+                  else{
+                      incorrectErr.textContent = "incorrect password";
+                      incorrectErr.classList.add("checker");
+                  }
+                  
+                }
+                else{
+                   errPass.textContent = "Password too short or include gap";
+                   errPass.classList.add("checker");
+                }
+               }
+               else{
+               errName.textContent = "Username must end with @gmail.com or include gap";
+               errName.classList.add("checker");
+             }
+
+             //creating a POST Api
+            const data = {user, confirms};
+            const opt = {
+                method: "POST",
+                headers: {"Content-Type":"application/json"},
+                body:JSON.stringify(data)
+            };
+            const response = await fetch("/signup", opt);
+
+            //Api error handler
+            if(response.ok){
+                alert("signup successful");
+            }
+            else{
+                alert("errormessage")
+            }
+            
+        });
+    </script>
 </body>
 </html>

@@ -1,16 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chnage.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-</head>
+    </head>
+
+
 <body>
-    <div>
+    <section>
+    <div class="div1">
+        <div class="div2">
+            <header>login</header>
+            <form id="form">
+                <p id="demo"></p>
+                <p id="code"></p>
+                <legend class="username">Username</legend>
+                <i class="fa-solid fa-user-tie" style="color: deepskyblue;" >
+                    <input id="username" class="user" type="text" name="Username" placeholder="Type your username"></i>
 
+                <legend class="password">Password</legend>
+                <i class="fa fa-lock" style="color: deepskyblue;">
+                    <input id="password" class="pass" type="password" name="password" placeholder="Type your password"></i>
+
+
+                <button class="button1" type="menu">Forgotten password?</button>
+
+                    <input type="submit" value="Login " id="submit" class="submit">   
+
+                <span class="span1">Or login Using</span>
+                
+                <div class="icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-google"></i></a>
+                </div>
+            </form>
+        </div>
     </div>
-    <a href="Index.html">new world</a>
+</section>
 </body>
-</html>
+
+        <script>
+ 
+                //working with DOM
+                const form = document.getElementById("form");
+
+                //listening for event
+            form.addEventListener("submit", async e => {
+             e.preventDefault();
+              const username = document.getElementById("username").value;
+                 const password = document.getElementById("password").value;
+
+                 //creating a GET Api
+            const response = await fetch("/login");
+             const data = await response.json();
+
+             //Lopping through our GET Api, assining it to EACH and rendering logics to the DOM
+             for(let each of data) {
+             if(username == each.user && password === each.confirms){
+               alert("verification complete");
+               window.location.href = "check.html";
+               }
+              else{
+               alert('wrong password or username');
+                }
+   };
+          
+});
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//const form = document.getElementById("form")
+  //          form.addEventListener("submit", async e => {
+//   e.preventDefault()
+//   const username = document.getElementById("username").value
+//   const password = document.getElementById("password").value
+
+//   for(each of data) {
+//       if(each.user === username && each.confirms === password){
+//           alert("verification complete")
+//       }
+//       else{
+//           alert('wrong password or username')
+//       }
+//   }
+
+                
+                
+
+           //     const info = {, password}
+           //     const options = {
+           //         method: "POST",
+               //     headers: {"Content-Type":"application/json"},
+            //        body:JSON.stringify(info)
+            //    }
+            //    const response = await fetch("/signup", options)
+            //    if(response.ok){
+                  //  alert("login successful")
+                //}
+               // {
+             //       const error = await response.json()
+           //         alert(error.message)
+              //  } 
+          //  })
+
+        </script>
+    </body>
+    </html>

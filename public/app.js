@@ -5,7 +5,6 @@ const incorrectErr = document.querySelector("#incorrect")
 const errPass  =document.querySelector("#code")
 
  Submit.addEventListener("click", async (e) => {
-  try{
   e.preventDefault()
   const confirms = document.getElementById("confirm").value
      const userName = document.getElementById("username").value
@@ -44,10 +43,7 @@ const errPass  =document.querySelector("#code")
        const response = await fetch("/api", options)
        const getData = await response.json()
        console.log(getData)
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    
+     
      
     
 
