@@ -15,7 +15,7 @@
     <div class="div1">
         <div class="div2">
             <header>Sign up</header>
-            <form>
+            <form id="form">
                 <p id="demo"></p>
                 <p id="code"></p>
                 <legend class="username">Username</legend>
@@ -56,10 +56,10 @@
         const errName  =document.querySelector("#demo")
         const incorrectErr = document.querySelector("#incorrect")
         const errPass  =document.querySelector("#code")
-        const push = document.getElementById("submit")
+        const form = document.getElementById("form")
 
         //listening to the event
-        push.addEventListener("click", async e => {
+        form.addEventListener("submit", async e => {
             const confirms = document.getElementById("confirms").value;
             const user = document.getElementById("username").value;
             const pass = document.getElementById("password").value;
@@ -99,10 +99,10 @@
 
             //Api error handler
             if(response.ok){
-                alert("signup successful");
+                console.log("signup successful");
             }
             else{
-                alert("errormessage")
+                console.log("errormessage")
             }
             
         });

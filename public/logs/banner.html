@@ -61,13 +61,13 @@
 
              //Lopping through our GET Api, assining it to EACH and rendering logics to the DOM
              for(let each of data) {
-             if(username == each.user && password === each.confirms){
+             if(username === each.user && password === each.confirms){
                alert("verification complete");
                window.location.href = "check.html";
                }
               else{
-               alert('wrong password or username');
-                }
+                console.log("something went buff")
+            }
    };
           
 });
